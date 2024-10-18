@@ -10,3 +10,8 @@ test('Verify homepage link, title, and article heading', async ({ page }) => {
 
   // Verify the page title
   await expect(page).toHaveTitle(/Hexo/); // Assuming "Hexo" is part of the title
+
+  // Verify the article heading (e.g., Table of Contents)
+  const articleHeading = page.locator('h1:has-text("Table of Contents")');
+  await expect(articleHeading).toBeVisible();
+});
